@@ -358,3 +358,40 @@ Self-supervised learning
 Classification
 
 **If we treat brain signals like language (sequence patterns), NLP techniques may be applied to EEG**
+
+
+# 7 April 2026 
+
+**Neuralink Study**
+
+Neuralink is a neurotechnology company working on advanced Brain–Computer Interfaces (BCIs) that enable direct communication between the human brain and computers. Its system uses ultra-thin electrodes (called neural threads) implanted in the brain to capture neural signals with high precision. These signals are processed by an implanted chip, which wirelessly transmits brain data to external systems. Neuralink also has the capability to stimulate the brain by sending electrical signals back, enabling a two-way communication loop.
+
+The core technology of Neuralink includes signal acquisition from neurons, real-time processing using AI models, and limited neural stimulation. This allows basic decoding of brain activity such as movement intention and simple communication. However, it currently cannot read complex thoughts or inject detailed information into the brain.
+
+For my research, Neuralink provides a strong foundational direction. In the initial stage, it helps me understand how brain signals are captured, processed, and decoded. I can start by working with simpler tools like EEG data to build models that map brain signals to intentions. This forms the first step of my idea—reading the brain.
+
+In the long run, Neuralink becomes highly relevant because it enables high-resolution brain data and supports closed-loop systems (reading and writing to the brain). This aligns directly with my research goal of building a system where AI not only interprets brain signals but also sends meaningful feedback back to the brain.
+
+The most important research opportunity lies in neural encoding converting AI-generated outputs into brain-understandable signals. While Neuralink focuses on hardware and signal capture, my research can focus on intelligence, interpretation, and feedback mechanisms.
+
+In conclusion, Neuralink acts as the technological foundation (hardware layer), while my work can contribute to building the cognitive layer creating a system where AI and the brain can interact seamlessly and enhance human capabilities.
+
+**Neuralink helps me in**:
+->Understanding Real Brain Signals
+->Learn Decoding First
+->Build First Prototype (Without Implant)
+MVP:
+Input: EEG signals
+Model: AI classifier
+Output: Text / action
+->High-Resolution Data Access
+->True Closed-Loop System
+->Real Human Trials
+
+**Research Points**:
+->Core Problem 1: Neural Decoding
+->Core Problem 2: Neural Encoding
+->Core Problem 3: Latent Thought Space
+->Core Problem 4: Co-Adaptive Learning
+->Core Problem 5: Sensory Injection
+->Core Problem 6: Personalization
