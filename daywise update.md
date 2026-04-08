@@ -397,5 +397,5 @@ Output: Text / action
 ->Core Problem 6: Personalization
 
 # 8 April 2026
-Reading a research paper: "Cognitive Enhancement through AI: Rewiring the Brain for Peak Performance - Noor Saif Fares Al Mazrouei" [Research Paper](https://www.researchgate.net/publication/376159369_The_Research_of_the_Relationship_Between_Artificial_Intelligence_and_Human_Brain)
+Reading a research paper: "Cognitive Enhancement through AI: Rewiring the Brain for Peak Performance - Noor Saif Fares Al Mazrouei" [Research Paper](https://trendsresearch.org/insight/cognitive-enhancement-through-ai-rewiring-the-brain-for-peak-performance/)
   
