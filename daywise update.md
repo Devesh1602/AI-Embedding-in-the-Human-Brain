@@ -534,3 +534,36 @@ Use public datasets instead of waiting for a headset: BCI Competition IV-2a (mot
 Build the simplest possible baseline fast: bandpass filter → artifact rejection → a small encoder (even a CNN or small transformer) trained to regress EEG windows onto CLIP/text embeddings of the stimulus shown to the subject, evaluated with cosine similarity / retrieval accuracy against chance. This gets you a number within a couple of weeks, which is worth more to the project than another month of notes.
 Push "neural encoding" (writing back to the brain) to a clearly separate, later phase and scope it honestly — today, "writing" in practice means sensory stimulation (cochlear/retinal implants, DBS), not information injection. If you want to touch this computationally without hardware, the tractable version is simulating a closed loop entirely in software (encode → decode → compare), not literally stimulating tissue.
 Keep the ethics section — it's a genuine strength most technical BCI writeups skip — but tie it to your specific method once you have one, rather than to the general topic.
+
+# 10 September 2026
+
+Week 1 — ground it in primary sources + set up tooling (no code yet, but install everything)
+
+Read these directly instead of summaries of summaries: Willett et al. 2021 (Nature, handwriting decoding), Willett et al. 2023 (Nature, speech decoding via BCI), Metzger et al. 2023 (Nature, speech neuroprosthesis), Anumanchipalli et al. 2019 (Nature, speech synthesis from ECoG), and Scotti et al.'s MindEye/MindEye2 papers (fMRI → CLIP embedding space → image reconstruction — this is the closest thing in the literature to what your repo title describes). Skim each for: what signal they used, what model architecture, what metric, what number they got. That gives you a real baseline to compare against later instead of vibes.
+
+In parallel, install the toolchain so week 2 isn't blocked: MNE-Python for preprocessing, and braindecode (PyTorch-native EEG decoding, actively maintained) for modeling. pip install mne braindecode and run through braindecode's own tutorial notebook end to end — that alone will teach you the standard EEG pipeline (filtering → epoching → artifact rejection → windowing) faster than reading about it.
+
+Week 2 — get a dataset loaded and explored
+
+Pick one, don't try to combine them yet:
+
+BCI Competition IV-2a (also mirrored on Kaggle) — motor imagery EEG, 4 classes, small and clean, the standard "hello world" of EEG decoding. Best if you want the simplest possible baseline first.
+ZuCo 2.0 — EEG + eye-tracking recorded while subjects read natural sentences, with the zuco-benchmark repo for reference code. Best if you want to go straight for the "map EEG into an LLM embedding space" direction, since it already pairs brain signal with real text.
+
+Load it, plot raw traces, plot power spectra per band (delta/theta/alpha/beta/gamma — you already wrote these out in your notes), and confirm you understand the file structure before touching a model. This week's deliverable is one Jupyter notebook, committed to the repo, not a result.
+
+Week 3 — first baseline model, get one number
+
+If you went with BCI-IV-2a: train a simple CNN or braindecode's built-in ShallowFBCSPNet/EEGNetv4 to classify the 4 motor-imagery classes. Compare your accuracy to the published competition baselines (this is why week 1's reading matters — you need something to compare against).
+
+If you went with ZuCo: train a small encoder that takes EEG windows aligned to each word and regresses them toward that word's embedding from a pretrained LLM (even a small one), then evaluate with retrieval accuracy (does the nearest-neighbor embedding match the correct word more often than chance?). This is a scaled-down version of exactly what MindEye does for vision, applied to language — and it's a direct, honest first step toward your original "latent meaning mapping" idea.
+
+Either way, week 3 ends with a real, if modest, number in the repo.
+
+Week 4 — iterate and reframe the repo as a research project
+
+Restructure the GitHub repo: add a /papers folder with your literature notes (keep the daywise log, it's good practice), a /code folder with the notebooks, a /data folder (gitignored, just download scripts), and replace the current README's "voids/implant" framing with a proper one-paragraph research question plus a related-work section citing the papers above. That reframing alone will make the repo legible to anyone else who looks at it — right now it reads as a philosophy essay; after this it reads as a research project with a testable claim.
+
+Push the "writing back to the brain" direction to a clearly separate, explicitly future section — don't try to prototype it yet, since there's no hardware path to it right now.
+
+Today, specifically, the highest-leverage single action is: pip install mne braindecode, download BCI-IV-2a or ZuCo, and get through one tutorial notebook. Everything else compounds from having a working pipeline instead of more notes.
